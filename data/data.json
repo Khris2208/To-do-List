@@ -3,8 +3,8 @@
   "items": [
     {
       "id": 1,
-      "hari": "Selasa",
-      "jam": "14:00",
+      "hari": "Senin",
+      "jam": "12:00",
       "kegiatan": "Bertemu Clien",
       "done": true,
       "created_at": "2026-01-30T06:25:34.416223"

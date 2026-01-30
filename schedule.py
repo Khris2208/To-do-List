@@ -251,7 +251,74 @@ def main_menu():
         else:
             print("Pilihan tidak valid. Coba lagi.")
 
+            def add_duration(data):
+                try:
+                    id_ = int(input("Masukkan nomor (id) kegiatan untuk menambahkan durasi: "))
+                except ValueError:
+                    print("Id harus berupa angka.")
+                    return
+                it = find_item(data, id_)
+                if not it:
+                    print("Kegiatan tidak ditemukan.")
+                    return
+                durasi = input("Masukkan durasi kegiatan (dalam jam): ").strip()
+                try:
+                    durasi = float(durasi)
+                    if durasi < 0:
+                        raise ValueError
+                except ValueError:
+                    print("Durasi harus berupa angka positif.")
+                    return
+                it["durasi"] = durasi
+                print(f"Durasi untuk kegiatan '{it['kegiatan']}' telah ditambahkan: {durasi} jam.")
 
+            # Add this option to the main menu
+            def main_menu():
+                data, trash = load_state()
+                while True:
+                    print("\n=== Aplikasi Jadwal Mingguan ===")
+                    print("1. Tambah kegiatan")
+                    print("2. Edit kegiatan")
+                    print("3. Hapus kegiatan (ke tempat sampah)")
+                    print("4. Lihat semua kegiatan")
+                    print("5. Lihat kegiatan per hari")
+                    print("6. Tandai selesai / batal selesai")
+                    print("7. Lihat tempat sampah")
+                    print("8. Pulihkan kegiatan dari tempat sampah")
+                    print("9. Tambah durasi kegiatan")  # New option
+                    print("10. Keluar")
+                    choice = input("Pilih (1-10): ").strip()
+                    if choice == "1":
+                        add_activity(data)
+                        save_state(data, trash)
+                    elif choice == "2":
+                        edit_activity(data)
+                        save_state(data, trash)
+                    elif choice == "3":
+                        delete_activity(data, trash)
+                        save_state(data, trash)
+                    elif choice == "4":
+                        list_all(data)
+                    elif choice == "5":
+                        hari = input("Masukkan hari: ").strip().capitalize()
+                        list_by_day(data, hari)
+                    elif choice == "6":
+                        mark_status(data)
+                        save_state(data, trash)
+                    elif choice == "7":
+                        list_trash(trash)
+                    elif choice == "8":
+                        recover_activity(data, trash)
+                        save_state(data, trash)
+                    elif choice == "9":
+                        add_duration(data)  # Call the new function
+                        save_state(data, trash)
+                    elif choice == "10":
+                        save_state(data, trash)
+                        print("Sampai jumpa!")
+                        break
+                    else:
+                        print("Pilihan tidak valid. Coba lagi.")
 if __name__ == "__main__":
     main_menu()
 
