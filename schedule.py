@@ -334,4 +334,9 @@ if __name__ == "__main__":
             status = "Selesai" if item.get("done") else "Belum"
             print(f"{item['id']:<5} {item['hari']:<10} {item['jam']:<8} {item['kegiatan']:<30} {status:<10}")
 
-           
+        def print_item_with_duration(item):
+            if __name__ == "__main__":
+                main_menu()
+            status = "Selesai" if item.get("done") else "Belum"
+            durasi = item.get("durasi", "-")
+            print(f"[{item['id']}] {item['hari']} {item['jam']} - {item['kegiatan']} (Durasi: {durasi} jam) (Status: {status})")
