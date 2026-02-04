@@ -334,27 +334,4 @@ if __name__ == "__main__":
             status = "Selesai" if item.get("done") else "Belum"
             print(f"{item['id']:<5} {item['hari']:<10} {item['jam']:<8} {item['kegiatan']:<30} {status:<10}")
 
-            def add_duration(data):
-                try:
-                    id_ = int(input("Masukkan nomor (id) kegiatan untuk menambahkan durasi: "))
-                except ValueError:
-                    print("Id harus berupa angka.")
-                    return
-                it = find_item(data, id_)
-                if not it:
-                    print("Kegiatan tidak ditemukan.")
-                    return
-                durasi = input("Masukkan durasi kegiatan (dalam jam): ").strip()
-                try:
-                    durasi = float(durasi)
-                    if durasi <= 0:
-                        raise ValueError
-                except ValueError:
-                    print("Durasi harus berupa angka positif.")
-                    return
-                it["durasi"] = durasi
-                print(f"Durasi untuk kegiatan '{it['kegiatan']}' telah ditambahkan: {durasi} jam.")
-                print_item(it)
-                it["tempat"] = input("Masukkan tempat kegiatan: ").strip()
-                if it["tempat"]:
-                    print(f"Tempat untuk kegiatan '{it['kegiatan']}' telah ditambahkan: {it['tempat']}")
+           
