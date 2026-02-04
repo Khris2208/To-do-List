@@ -1,5 +1,5 @@
 {
-  "next_id": 11,
+  "next_id": 12,
   "items": [
     {
       "id": 1,
@@ -80,6 +80,14 @@
       "kegiatan": "Meeting Clien",
       "done": false,
       "created_at": "2026-01-30T06:42:46.634107"
+    },
+    {
+      "id": 11,
+      "hari": "Senin",
+      "jam": "13:30",
+      "kegiatan": "Belajar",
+      "done": false,
+      "created_at": "2026-02-04T05:46:35.404070"
     }
   ]
 }

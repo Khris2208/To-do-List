@@ -355,3 +355,6 @@ if __name__ == "__main__":
                 it["durasi"] = durasi
                 print(f"Durasi untuk kegiatan '{it['kegiatan']}' telah ditambahkan: {durasi} jam.")
                 print_item(it)
+                it["tempat"] = input("Masukkan tempat kegiatan: ").strip()
+                if it["tempat"]:
+                    print(f"Tempat untuk kegiatan '{it['kegiatan']}' telah ditambahkan: {it['tempat']}")
